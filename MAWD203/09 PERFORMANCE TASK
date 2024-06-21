@@ -1,0 +1,74 @@
+public class DemoParty extends Party{
+    private int Menu;
+    public DemoParty(int numGuests, int menuOption){
+        super(numGuests);
+        this.Menu=menuOption;
+    }
+    public void displayDetail(){
+        System.out.println("Total number of guests:" + getNumGuest());
+        
+        String menuDescription;
+        if(Menu==1){
+            menuDescription="beef, is to";
+        }
+        else if(Menu==2){
+            menuDescription="pork, is to";
+        }
+        else{
+            menuDescription="Nothing... will";
+        }
+    System.out.println("Menu chosen is:" + Menu + "" + menuDescription + " be served");
+    showInvitation();
+    }
+    
+    public static void main(String[] args) {
+        DemoParty party = new DemoParty(50, 1); 
+        party.displayDetail();
+    }
+
+    public void showInvitation() {
+        System.out.println("Please join us for a party!");
+    }
+    
+}
+
+public class DinnerParty extends Party {
+    private int foodChoice;
+
+    public DinnerParty(int numGuests, int foodChoice) {
+        super(numGuests);
+        this.foodChoice = foodChoice;
+    }
+
+    public int getFoodChoice() {
+        return foodChoice;
+    }
+
+    public void setFoodChoice(int choice) {
+        foodChoice = choice;
+    }
+
+    @Override
+    public void showInvitation() {
+        System.out.println("Please come to my dinner party!");
+    }
+}
+
+public class Party{
+    private int numGuest;
+    public Party(int numGuest){
+        this.numGuest=numGuest;
+    }
+    
+    public void setNumGuest(int num){
+        this.numGuest=num;
+    }
+    
+    public int getNumGuest(){
+        return numGuest;
+    }
+    
+    public void showInvitation(){
+        System.out.println("Please come to my party!");
+    }
+}
